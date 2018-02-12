@@ -4,7 +4,7 @@ var rcolor = 0;
 var gcolor = 0;
 var bcolor = 0;
 var wcolor = 0;
-var filtered1;
+var filtered1;  Example
 
 function preload(){
     img = loadImage('nLeNgYb.jpg');
