@@ -1,162 +1,3 @@
-/*var img;
-var photo1;
-var rcolor = 0;
-var gcolor = 0;
-var bcolor = 0;
-var wcolor = 0;
-var filtered1;
-
-function preload(){
-    img = loadImage('nLeNgYb.jpg');
-}
-
-function setup() {
-    //create canvas with the width of the loaded photo
-  	createCanvas(photo1.width, photo1.height);
-}
-
-
-function draw(){
-  showPhoto();
-  contrast();
-  lightener();
-
-}
-
-function showPhoto(){
-    image(img, this.x, this.y);
-  }
-
-function contrast(){
-    loadPixels();
-    for(var i=0;i<4*img.width*img.height*4;i+=4) {
-      let theReach = 5
-      if (pixels[i] < pixels[i+100] && pixels[i+1] < pixels[i+101] && pixels[i+2] < pixels[i+102]) {
-        pixels[i] = 0; //red
-        pixels[i+1] = 0; //green
-        loadPixels();
-        pixels[i+2] = random(0, 255); //blue
-        pixels[i+3] = 200; //alpha
-      } else if (pixels[i] > pixels[i+100] && pixels[i+1] > pixels[i+101] && pixels[i+2] > pixels[i+102]) {
-        pixels[i] = random(0, 255); //red
-        pixels[i+1] = 0; //green
-        pixels[i+2] = 0; //blue
-        pixels[i+3] = 200; //alpha
-      }  else {
-        pixels[i] = 0; //red
-        pixels[i+1] = random(0, 255); //green
-        pixels[i+2] = 0; //blue
-        pixels[i+3] = 200; //alpha
-      }
-      pixels[i+3] -= 0; //alpha
-    }
-    updatePixels();
-}
-*/
-
-/*function whole(){
-    loadPixels();
-    for(var i=0;i<4*img.width*img.height*4;i+=4) {
-      if (pixels[i] > pixels[i+1] && pixels[i] > pixels[i+2]) {
-        rcolor+=1;
-      } else if (pixels[i+1] > pixels[i] && pixels[i+1] > pixels[i+2]) {
-        gcolor+=1;
-      }  else if(pixels[i+2] > pixels[i] && pixels[i+2] > pixels[i+1]){
-        bcolor+=1;
-      } else(){
-
-      }
-    }
-    if (rcolor > gcolor && rcolor > bcolor){
-      fill(255, 0, 0, 0);
-      rect(0, 0, img.width, img.height);
-    } else if (gcolor > rcolor && gcolor > bcolor){
-      fill(0, 255, 0, 0);
-      rect(0, 0, img.width, img.height);
-    } else if (bcolor > rcolor && bcolor > gcolor){
-      fill(0, 0, 255, 0);
-      rect(0, 0, img.width, img.height);
-    } else{
-      fill(127, 127, 127, 0);
-      rect(0, 0, img.width, img.height);
-    }
-    updatePixels();
-  }
-
-}*/
-
-/*  filter(rfilter)
-
-}
-function rfilter(){
-  random(0, 7)
-  }
-
-        this.bluebegin = photo1.height/2;
-        this.blueend = photo1.height/2 + 100;
-	}
-    blueTint(){
-        //change tint of pixels in a stripe by modifying the red channel
-        loadPixels();
-        for(let i=4 * photo1.width * this.bluebegin; i<4 * photo1.width * this.blueend ; i+=4) {
-          pixels[i] = pixels[i]-50; //red
-        }
-        updatePixels();
-    }
-//move the placement of the tint filter based on mouse position
-    moveTint(){
-        if(mouseY <= photo1.height/2){
-           this.bluebegin = mouseY;
-     }
-     else{
-         this.blueend = mouseY;
-     }
-
-    }
-
-}
-*/
-
-/*var img;
-
-function preload() {
-  img = loadImage("nLeNgYb.png");
-}
-
-function setup() {
-  createCanvas(img.width, img.width);
-  pixelDensity(1);
-  img.loadPixels();
-  loadPixels();
-}
-
-function draw() {
-  for (var x = 0; x < img.width; x++) {
-    for (var y = 0; y < img.height; y++ ) {
-      // Calculate the 1D location from a 2D grid
-      var loc = (x + y*img.width)*4;
-      // Get the R,G,B values from image
-      var r,g,b;
-      r = img.pixels[loc];
-      // Calculate an amount to change brightness based on proximity to the mouse
-      var maxdist = 50;
-      var d = dist(x, y, mouseX, mouseY);
-      var adjustbrightness = 255*(maxdist-d)/maxdist;
-      r += adjustbrightness;
-      // Constrain RGB to make sure they are within 0-255 color range
-      r = constrain(r, 0, 255);
-      // Make a new color and set pixel in the window
-      //color c = color(r, g, b);
-      var pixloc = (y*width + x)*4;
-      pixels[pixloc] = r;
-      pixels[pixloc+1] = r;
-      pixels[pixloc+2] = r;
-      pixels[pixloc+3] = 255;
-    }
-  }
-  updatePixels();
-}
-*/
 var img;
 var img2;
 var img3;
@@ -182,6 +23,15 @@ function preload() {
 
 }
 
+class SliderClass {
+  constructor(x,y,length,center){
+    this.slider = createSlider(0, length, center);
+    this.slider.position(x,y);
+    this.slider.style('width', '200px');
+  }
+}
+
+
 function setup() {
   var imgratio = img.height/img.width;
   var imgheight = 1000*imgratio;
@@ -190,15 +40,9 @@ function setup() {
   image(img, 0, 0, 1000, 1000*imgratio); //draw the image to the canvas
   console.log("Image width: 1000" + " height: " + 1000*imgratio);
   console.log(imgratio);
-  rSlider = createSlider(0, 255, 100);
-  rSlider.position(20, 20);
-  gSlider = createSlider(0, 255, 0);
-  gSlider.position(20, 50);
-  bSlider = createSlider(0, 255, 255);
-  bSlider.position(20, 80);
-  button = createButton('click me');
-button.position(1005, 5);
-button.mousePressed(changeBG);
+  redSlider = new SliderClass(0*img.width/8, img.height,255,random(255));
+  blueSlider = new SliderClass(0*img.width/8, img.height+120,255,random(255));
+  greenSlider = new SliderClass(0*img.width/8, img.height+60,255,random(255));
   loadPixels();
  for(var i=4*1000*0;i<16*1000*1000*imgratio;i+=4) {
    if (pixels[i] < pixels[i+100] && pixels[i+1] < pixels[i+101] && pixels[i+2] < pixels[i+102]) {
@@ -256,10 +100,15 @@ button.mousePressed(changeBG);
 
  }
 updatePixels();
+f1();
+f2();
+f3();
+f4();
+redFilter(0, img.height);
 }
 
 function redFilter(y1, y2){
-  fill(255, 0, 0, 50);
+  fill(255, 0, 0, 20);
   noStroke();
   rect(0, y1, 1000, y2);
 }
@@ -276,19 +125,81 @@ function blueFilter(y1, y2){
   rect(0, y1, 1000, y2);
 }
 
+function f1(){
+  loadPixels();
+ for (var i = 0; i < pixels.length; i+=4) {
+   if (pixels[i] > 191) {
+     pixels[i] = 255;
+   } else if (pixels[i] > 127) {
+     pixels[i] = 191;
+   } else if (pixels[i] > 20) {
+     pixels[i] = 127;
+     } else {
+     pixels[i] = 63;
+   };
+ }
+ updatePixels();
+}
+
+function f2(){
+  loadPixels();
+  for (var i = 0; i < pixels.length; i+=4) {
+    if (pixels[i] > 191) {
+      pixels[i+1] = 255;
+    } else if (pixels[i] > 127) {
+      pixels[i+1] = 191;
+    } else if (pixels[i] > 20) {
+      pixels[i+1] = 127;
+      } else {
+      pixels[i+1] = 63;
+    };
+  }
+  updatePixels();
+}
+
+function f3(){
+  loadPixels();
+  for (var i = 0; i < pixels.length; i+=4) {
+    if (pixels[i] > 191) {
+      pixels[i+2] = 255;
+    } else if (pixels[i] > 127) {
+      pixels[i+2] = 191;
+    } else if (pixels[i] > 20) {
+      pixels[i+2] = 0;
+      } else {
+      pixels[i+2] = 63;
+    };
+  }
+  updatePixels();
+}
+
+function f4(){
+  loadPixels();
+  for (var i = 0; i < pixels.length; i+=4) {
+    if (pixels[i] > 191) {
+      pixels[i+3] = 255;
+    } else if (pixels[i] > 127) {
+      pixels[i+3] = 191;
+    } else if (pixels[i] > 20) {
+      pixels[i+3] = 127;
+      } else {
+      pixels[i+3] = 63;
+    };
+  }
+  updatePixels();
+}
+
 function changeBG() {
   ellipse(random(0, 100), random(0, 100), 50, 50)
-  //filter.remove();
 }
 
 function draw() {
-  var r = rSlider.value();
-  var g = gSlider.value();
-  var b = bSlider.value();
-  fill(r, g, b, 255);
+  /*var redVal = redSlider.slider.value();
+  var greenVal = greenSlider.slider.value();
+  var blueVal = blueSlider.slider.value();
+  fill(redVal, greenVal, blueVal, 1);
   noStroke();
-  rect(0, 0, 1000, 1000*imgratio);
-  text("red", rSlider.x * 2 + rSlider.width, 35);
-  text("green", gSlider.x * 2 + gSlider.width, 65);
-  text("blue", bSlider.x * 2 + bSlider.width, 95);
+  rect(0, 0, img.width, img.height);
+  fill(255, 255, 255);*/
+
 }
