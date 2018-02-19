@@ -29,8 +29,8 @@ function preload() {
   //folder as your sketch file (sketch.js) and then put the image file ("jomy.jpg")
   //inside of that.
   img = loadImage("nLeNgYb.png");
-  img1 = loadImage("vernal-equinox-march-20-first-day-spring-84@1x.jpg");
-  img2 = loadImage("bright_colorful_wallpapers_002.jpg");
+  //img1 = loadImage("vernal-equinox-march-20-first-day-spring-84@1x.jpg");
+  //img2 = loadImage("bright_colorful_wallpapers_002.jpg");
 }
 
 class ButtonClass{ //creates a class that allows you create buttons based on the 4 parameters below
