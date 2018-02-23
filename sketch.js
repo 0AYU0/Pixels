@@ -63,7 +63,7 @@ function setup() {
   f1button = new ButtonClass('Filter 1', 10, img.height-175, f1, '75px'); //creates a button for the first filter, the next three lines do the same for different filters
   f2button = new ButtonClass('Filter 2', 300, img.height-175, f2, '75px');
   f3button = new ButtonClass('Filter 3', 590, img.height-175, f3, '75px');
-  f4button = new ButtonClass('Filter 4', img.width-440, img.height-100, f4, '75px');
+  f4button = new ButtonClass('Filter 4', img.width-440, img.height-175, f4, '75px');
   //redfilter = new ButtonClass('Red Filter', 155, img.height-100, redFilter, '100px');
   //greenfilter= new ButtonClass('Green Filter', 445, img.height-100, blueFilter, '100px');
   //bluefilter = new ButtonClass('Blue Filter', 745, img.height-100, greenFilter, '100px');
