@@ -8,8 +8,8 @@
  
  The links to the images used below are here : 
  img - https://www.desktop-background.com/p/2015/06/07/960475_vivi-ornitier-final-fantasy-ix-wallpapers-walldevil-best-free_1920x1080_h.jpg
- img1 - https://www.merriam-webster.com/assets/mw/images/article/art-wap-article-main/vernal-equinox-march-20-first-day-spring-84@2x.jpg
- img2 - https://a04.t26.net/taringa/avatares/8/C/4/4/9/F/Lita_C/20D.jpg
+ img2 - https://www.merriam-webster.com/assets/mw/images/article/art-wap-article-main/vernal-equinox-march-20-first-day-spring-84@2x.jpg
+ img3 - https://a04.t26.net/taringa/avatares/8/C/4/4/9/F/Lita_C/20D.jpg
  
  Includes Code From:
  * Lizzy Brooks
@@ -36,9 +36,9 @@ function preload() {
   img = loadImage("nLeNgYb.png");
   img2 = loadImage("nLeNgYb.jpg");
   img3 = loadImage("vernal-equinox-march-20-first-day-spring-84@1x.jpg");
-  img4 = loadImage("bright_colorful_wallpapers_002.jpg");
-  img5 = loadImage("b1.jpg");
-  img6 = loadImage("VictorFrankenstein_ClipMurderInvestigation.jpg");
+  //img4 = loadImage("bright_colorful_wallpapers_002.jpg");
+  //img5 = loadImage("b1.jpg");
+  //img6 = loadImage("VictorFrankenstein_ClipMurderInvestigation.jpg");
 
 }
 
