@@ -43,7 +43,7 @@ function preload() {
 }
 
 class ButtonClass{
-  constructor(input, x, y, func, size){
+  constructor(input, x, y, func, size){ //allows you to create buttons based on parameters
     this.button = createButton(input)
     this.button.position(x, y);
     this.button.style('width', size)
@@ -60,22 +60,22 @@ function setup() {
   image(img, 0, 0, 1000, 1000*imgratio); //draw the image to the canvas
   console.log("Image width: 1000" + " height: " + 1000*imgratio);
   console.log(imgratio);
-  f1button = new ButtonClass('Filter 1', 10, img.height-175, f1, '75px');
+  f1button = new ButtonClass('Filter 1', 10, img.height-175, f1, '75px'); //creates a button for the first filter, the next three lines do the same for different filters
   f2button = new ButtonClass('Filter 2', 300, img.height-175, f2, '75px');
   f3button = new ButtonClass('Filter 3', 590, img.height-175, f3, '75px');
-  f4button = new ButtonClass('Filter 4', img.width-440, img.height-140, f4, '75px');
+  f4button = new ButtonClass('Filter 4', img.width-440, img.height-100, f4, '75px');
   //redfilter = new ButtonClass('Red Filter', 155, img.height-100, redFilter, '100px');
   //greenfilter= new ButtonClass('Green Filter', 445, img.height-100, blueFilter, '100px');
   //bluefilter = new ButtonClass('Blue Filter', 745, img.height-100, greenFilter, '100px');
 
   loadPixels();
  for(var i=4*1000*0;i<16*1000*1000*imgratio;i+=4) {
-   if (pixels[i] < pixels[i+100] && pixels[i+1] < pixels[i+101] && pixels[i+2] < pixels[i+102]) {
+   if (pixels[i] < pixels[i+100] && pixels[i+1] < pixels[i+101] && pixels[i+2] < pixels[i+102]) { //sets pixels to a color based on the color of a pixel 25 away
      pixels[i] = 255; //red
      pixels[i+1] = 0; //green
      pixels[i+2] = 0; //blue
      pixels[i+3] = 200;
-   } else if (pixels[i] > pixels[i+100] && pixels[i+1] > pixels[i+101] && pixels[i+2] > pixels[i+102]) {
+   } else if (pixels[i] > pixels[i+100] && pixels[i+1] > pixels[i+101] && pixels[i+2] > pixels[i+102]) { //does the same, but turns them green, if the red, green, and blue values are bigger than those 25 to the left
      pixels[i] = 0; //red
      pixels[i+1] = random(0, 255); //green
      pixels[i+2] = 0; //blue
@@ -131,32 +131,32 @@ updatePixels();
 function redFilter(){
   fill(255, 0, 0, 50);
   noStroke();
-  rect(0, 0, 1000, 1000*imgratio);
+  rect(0, 0, 1000, 1000*imgratio); //transparent red rectangle
 }
 
 function greenFilter(){
   fill(0, 255, 0, 255);
   noStroke();
-  rect(0, 0, 1000, 1000*imgratio);
+  rect(0, 0, 1000, 1000*imgratio); //transparent green rectangle
 }
 
 function blueFilter(){
   fill(0, 0, 255, 50);
   noStroke();
-  rect(0, 0, 1000, 1000*imgratio);
+  rect(0, 0, 1000, 1000*imgratio); //transparent blue rectangle
 }
 
 function f1(){
   loadPixels();
- for (var i = 0; i < pixels.length; i+=4) {
-   if (pixels[i] > 191) {
+ for (var i = 0; i < pixels.length; i+=4) { //looks at value of the red of a pixel
+   if (pixels[i] > 191) {//if red is more than 191, make it 255
      pixels[i] = 255;
-   } else if (pixels[i] > 127) {
+   } else if (pixels[i] > 127) {// if red is more than 127 but not bigger than 191, make it 191
      pixels[i] = 191;
-   } else if (pixels[i] > 20) {
+   } else if (pixels[i] > 20) {// if red is more than 20 but not more than 127, make it 127
      pixels[i] = 127;
      } else {
-     pixels[i] = 63;
+     pixels[i] = 63;// if it is less than 20, make it 63
    };
  }
  updatePixels();
@@ -164,7 +164,7 @@ function f1(){
 
 function f2(){
   loadPixels();
-  for (var i = 0; i < pixels.length; i+=4) {
+  for (var i = 0; i < pixels.length; i+=4) {// similar to red case but uses the green color
     if (pixels[i] > 191) {
       pixels[i+1] = 255;
     } else if (pixels[i] > 127) {
@@ -180,7 +180,7 @@ function f2(){
 
 function f3(){
   loadPixels();
-  for (var i = 0; i < pixels.length; i+=4) {
+  for (var i = 0; i < pixels.length; i+=4) {// similar to red case but uses the blue color
     if (pixels[i] > 191) {
       pixels[i+2] = 255;
     } else if (pixels[i] > 127) {
@@ -196,7 +196,7 @@ function f3(){
 
 function f4(){
   loadPixels();
-  for (var i = 0; i < pixels.length; i+=4) {
+  for (var i = 0; i < pixels.length; i+=4) {// similar to red case but uses the alpha (transparency)
     if (pixels[i] > 191) {
       pixels[i+3] = 255;
     } else if (pixels[i] > 127) {
