@@ -1,3 +1,21 @@
+/*
+ Title: RGB Filter
+ Imagined, Designed, and Programmed by: Alexander Yu
+ Date: 2/19/2018
+ Description: 
+ This filter intially changes the color of a pixel in an image to red, green or blue, based on the color of the pixel twenty-five pixels across.
+ There are 4 filters that can be added on top that change the color of red, green, blue, or alpha, based on the red value.
+ 
+ The links to the images used below are here : 
+ img - https://www.desktop-background.com/p/2015/06/07/960475_vivi-ornitier-final-fantasy-ix-wallpapers-walldevil-best-free_1920x1080_h.jpg
+ img1 - https://www.merriam-webster.com/assets/mw/images/article/art-wap-article-main/vernal-equinox-march-20-first-day-spring-84@2x.jpg
+ img2 - https://a04.t26.net/taringa/avatares/8/C/4/4/9/F/Lita_C/20D.jpg
+ 
+ Includes Code From:
+ * Lizzy Brooks
+ * Danny Santana
+ */
+  
 var img;
 var img2;
 var img3;
